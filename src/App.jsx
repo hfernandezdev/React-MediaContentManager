@@ -1,21 +1,40 @@
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import ContentLibraryPage from './pages/ContentLibraryPage';
+import AdminDashboardPage from './pages/AdminDashboardPage';
+import CreateCategoryPage from './pages/CreateCategoryPage';
+import CreateThemePage from './pages/CreateThemePage';
+import AddContentPage from './pages/AddContentPage';
+
+import './App.css';
+
 
 function App() {
   return (
-    <>
-      <main style={{padding: '2rem'}}>
-        <div className="container">
-          <header>
-            <h1>Hola, Pico CSS con React</h1>
-          </header>
-          <main>
-            <p>Este es un ejemplo de cómo usar Pico CSS en un proyecto de React.</p>
-            <button className="primary">Haz clic aquí</button>
-          </main>
-        </div>
-      </main>
-    </>
-  )
+    <Router>
+      <div className="container">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/content-library" element={<ContentLibraryPage />} />
+            <Route path="/admin-dashboard" element={AdminDashboardPage} />
+            <Route path="/create-category" element={CreateCategoryPage} />
+            <Route path="/create-theme" element={CreateThemePage} />
+            <Route path="/add-content" element={AddContentPage} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
