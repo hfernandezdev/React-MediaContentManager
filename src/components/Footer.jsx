@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div>
-
-    </div>
+    <footer className="container-fluid">
+      <p className="text-center">&copy; {new Date().getFullYear()} Tu Proyecto. Todos los derechos reservados.</p>
+    </footer>
   )
 }
 
